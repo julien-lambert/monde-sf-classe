@@ -1,5 +1,11 @@
 # Notre monde SF — classe de Terminale
 
+**Adresse à donner aux élèves : https://julien-lambert.github.io/monde-sf-classe/**
+
+Cliquez sur « Exécuter le monde » : aucun fichier à charger. Les cahiers des 13 groupes s’ouvrent dans Basthon depuis cette page.
+
+# Notre monde SF — classe de Terminale
+
 [**Démarrer le monde dans Basthon**](https://notebook.basthon.fr/?from=https%3A%2F%2Fraw.githubusercontent.com%2Fjulien-lambert%2Fmonde-sf-classe%2Fmain%2Fnotebooks%2FDecouvrir_le_monde.ipynb)
 
 Aucun compte ni téléchargement préalable. Attendre le chargement de Python, puis **Cellule → Exécuter tout**. Les routines sont incluses dans chaque cahier : pas de fichiers annexes à ouvrir.
