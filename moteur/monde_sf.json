@@ -1,0 +1,14 @@
+{
+  "nom": "Asteria",
+  "luminosite_W": 3.828e26,
+  "distance_m": 1.496e11,
+  "masse_kg": 5.97e24,
+  "rayon_m": 6.371e6,
+  "duree_yr": 5e9,
+  "stellar_validity_yr": 1e10,
+  "stellar_initial_ratio": 0.75,
+  "stellar_final_ratio": 1.0,
+  "water_kg": 1.4e21,
+  "co2_initial_mol": 3e19,
+  "n2_mol": 1.39e20
+}

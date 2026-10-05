@@ -1,0 +1,62 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notre planète en systèmes dynamiques</title>
+<style>
+body{font:17px/1.5 system-ui;background:#f3f6f8;color:#18303e;max-width:1180px;margin:30px auto;padding:0 20px}h1,h2{line-height:1.2}section{background:white;border-radius:12px;padding:24px;margin:22px 0}.controls{display:flex;flex-wrap:wrap;gap:18px}label{display:block}input{accent-color:#086e80}svg{width:100%;height:auto}#graph{font:16px system-ui} .node{fill:#e9f3f5;stroke:#126478;stroke-width:2}.stock{fill:#def1e6;stroke:#297b56;stroke-width:2}.edge{fill:none;stroke:#486879;stroke-width:2;marker-end:url(#arrow)}.off{opacity:.15}.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}button{font:inherit;padding:7px 15px;background:#e1edf0;border:1px solid #aec4ce;border-radius:6px}#age{width:100%}.metrics{display:flex;gap:30px;flex-wrap:wrap} .note{color:#526676}a{color:#086e80}text{fill:#18303e}
+</style>
+<h1>Notre planète en systèmes dynamiques</h1><p><a href="synthese_monde.html">Lire le dossier de synthèse du monde choisi</a></p>
+<p>Monde SF Asteria · cinq milliards d’années simulées · maquette pédagogique</p>
+<section><h2>Activer les mécanismes</h2><div class="controls">
+<label><input id="weather" type="checkbox" checked> Altération et stockage du carbone</label>
+<label><input id="ice" type="checkbox" checked> Glace et albédo</label>
+<label><input id="water" type="checkbox" checked> Pluie vers altération</label>
+<label><input id="sun" type="checkbox" checked> Soleil progressivement plus lumineux</label></div>
+<p class="note">Les courbes correspondent à 16 simulations Python vérifiées. Les cases sélectionnent une expérience déjà calculée. Désactiver « pluie vers altération » conserve le cycle de l’eau mais remplace son action sur l’altération par une valeur fixe. Le modèle n’impose aucune glaciation historique.</p>
+</section>
+<section><h2>Stocks, flux et rétroactions</h2>
+<svg id="graph" viewBox="0 0 1040 660" role="img" aria-label="Graphe causal avec stocks d'eau et de carbone, flux et boucles activables"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#486879"/></marker></defs>
+<g id="edges">
+<path class="edge" d="M170 90H395"/><text x="240" y="78">rayonnement +</text>
+<path class="edge" d="M570 90H765"/><text x="600" y="78">T → glace −</text>
+<g id="iceedges"><path class="edge" d="M860 130V210H570V130"/><text x="630" y="198">glace → albédo → T : −</text></g>
+<path class="edge" d="M475 130V292"/><text x="488" y="248">évaporation +</text>
+<path class="edge" d="M205 330H400"/><text x="235" y="314">évaporation</text>
+<path class="edge" d="M485 372V450"/><text x="493" y="416">condensation</text>
+<path class="edge" d="M400 490H205V370"/><text x="230" y="485">pluie / neige</text>
+
+<path class="edge" d="M790 295V140H570"/><text x="805" y="250">serre → T +</text>
+<g id="wateredges"><path class="edge" d="M570 490H760"/><text x="585" y="473">pluie → altération +</text></g>
+<g id="weatheredges"><path class="edge" d="M855 450V375"/><text x="865" y="412">retrait CO2 −</text>
+<path class="edge" d="M940 490V560H750V580"/><text x="875" y="548">stockage</text></g>
+
+</g>
+<rect class="node" x="15" y="50" width="170" height="80" rx="10"/><text x="100" y="83" text-anchor="middle">Soleil</text><text id="sunvalue" x="100" y="110" text-anchor="middle"></text>
+<rect class="node" x="395" y="50" width="175" height="80" rx="10"/><text x="482" y="83" text-anchor="middle">Température</text><text id="tempvalue" x="482" y="110" text-anchor="middle"></text>
+<rect class="node" x="765" y="50" width="185" height="80" rx="10"/><text x="858" y="83" text-anchor="middle">Glace / albédo</text><text id="icevalue" x="858" y="110" text-anchor="middle"></text>
+<rect class="stock" x="15" y="292" width="190" height="80"/><text x="110" y="320" text-anchor="middle">Océan liquide</text><text id="oceanvalue" x="110" y="350" text-anchor="middle"></text>
+<rect class="stock" x="400" y="292" width="170" height="80"/><text x="485" y="320" text-anchor="middle">Vapeur d’eau</text><text id="vaporvalue" x="485" y="350" text-anchor="middle"></text>
+<rect class="stock" x="775" y="292" width="175" height="80"/><text x="862" y="320" text-anchor="middle">CO2 atmosphère</text><text id="co2value" x="862" y="350" text-anchor="middle"></text>
+<rect class="node" x="400" y="450" width="170" height="80" rx="10"/><text x="485" y="478" text-anchor="middle">Pluie / neige</text><text id="rainvalue" x="485" y="508" text-anchor="middle"></text>
+<rect class="node" x="760" y="450" width="190" height="80" rx="10"/><text x="855" y="485" text-anchor="middle">Altération</text><text x="855" y="510" text-anchor="middle">CO2 → roches</text>
+<path class="edge" d="M205 605H610V405H740V350H775"/><text x="300" y="594">dégazage volcanique</text><rect class="stock" x="15" y="570" width="190" height="80"/><text x="110" y="605" text-anchor="middle">Carbone du manteau</text><text x="110" y="630" text-anchor="middle">Réservoir initial</text><rect class="stock" x="650" y="580" width="200" height="70"/><text x="750" y="608" text-anchor="middle">Carbone des roches</text><text x="750" y="633" text-anchor="middle">Réservoir accumulé</text>
+</svg>
+<p><strong>Boucle stabilisante :</strong> T ↑ → évaporation ↑ → pluie ↑ → altération ↑ → CO2 ↓ → serre ↓ → T ↓.</p>
+<p><strong>Boucle amplifiante :</strong> T ↓ → glace ↑ → albédo ↑ → absorption solaire ↓ → T ↓.</p>
+<p class="note">Rectangles verts : stocks ; rectangles arrondis : grandeurs ou processus. Les flèches entre grandeurs portent un signe causal. Les flèches d’eau portent un nom de flux. Le manteau fournit en outre du CO2 par dégazage, à taux imposé. La glace contient une partie du stock d’eau de surface.</p>
+</section>
+<section><h2>Parcourir le temps</h2><label for="age">Instant : <strong id="date"></strong></label><input id="age" type="range" min="0" max="1000" value="1000"><button id="play" type="button">Animer</button><div class="metrics" id="metrics"></div></section>
+<section><h2>Évolution calculée et comparaison</h2><p>Trait bleu : expérience sélectionnée. Trait gris pointillé : toutes les boucles actives. Axe horizontal : milliards d’années depuis le début du scénario.</p><div class="charts" id="charts"></div><p class="note">La surface est moyennée sur toute la planète. Une pluie moyenne n’est ni une météo locale, ni une reconstitution des précipitations anciennes. L’océan reste presque constant car le modèle conserve l’eau et ne simule ni livraison ni échappement.</p></section>
+<section><h2>Interpréter notre monde</h2><p>Les paramètres de l'étoile, de l'orbite, de la planète et les stocks initiaux se choisissent dans monde_sf.json. Exécuter python3 construire_histoire.py pour recalculer les 16 configurations. Asteria utilise par défaut des grandeurs proches des exemples terrestres, mais aucune chronologie terrestre n'est imposée.</p><p>Le climat est un équilibre rapide et les flux rapides sont intégrés analytiquement. Le pas géologique augmente avec le temps. Il ne possède pas encore de rejet automatique par estimation locale de l'erreur : ce mécanisme reste à développer. Consulter histoire_comparaisons.json pour les écarts numériques de cette configuration.</p><p>Les formules et leurs limites sont fournies dans les fiches. Les glaciations, le vivant et la chimie atmosphérique détaillée ne sont pas reconstruits. La validité du scénario stellaire est une hypothèse fournie, pas une durée de vie calculée de l'étoile.</p></section>
+<script src="histoire_scenarios.js"></script><script>
+const controls=['weather','ice','water','sun'];let current=15,timer=null;
+const $=id=>document.getElementById(id);
+const titles=[['T_K','Température','K'],['rain_mm_yr','Pluie moyenne','mm/an'],['ocean_kg','Océan liquide','kg'],['pco2_Pa','Pression partielle CO2','Pa']];
+function poly(h,k,lo,hi){return h[k].map((v,i)=>`${(65+400*(1-h.age_Ga[i]/scenarios[15].age_Ga[0])).toFixed(2)},${(180-125*(v-lo)/(hi-lo)).toFixed(2)}`).join(' ')}
+function chart(k,title,unit){const h=scenarios[current],ref=scenarios[15];let lo=Math.min(...h[k],...ref[k]),hi=Math.max(...h[k],...ref[k]);if(hi-lo<Math.max(1,Math.abs(hi)*1e-6)){const d=Math.max(1,Math.abs(hi)*1e-5);lo-=d;hi+=d}const age=scenarios[15].age_Ga[0]*(1-Number($('age').value)/1000);return `<svg viewBox="0 0 500 245" role="img" aria-label="${title} en ${unit}"><text x="65" y="25">${title} (${unit})</text><path d="M65 45V180H465" fill="none" stroke="#aaa"/><text x="2" y="60">${hi.toPrecision(k==='ocean_kg'?8:4)}</text><text x="2" y="180">${lo.toPrecision(k==='ocean_kg'?8:4)}</text><polyline points="${poly(ref,k,lo,hi)}" fill="none" stroke="#8b9da5" stroke-dasharray="5 4" stroke-width="2"/><polyline points="${poly(h,k,lo,hi)}" fill="none" stroke="#086e80" stroke-width="2"/><line x1="${65+400*(1-age/scenarios[15].age_Ga[0])}" x2="${65+400*(1-age/scenarios[15].age_Ga[0])}" y1="45" y2="180" stroke="#be6830"/><text x="65" y="211">0</text><text x="445" y="211">5</text><text x="190" y="238">Temps depuis le début (Ga)</text></svg>`}
+function update(){current=controls.reduce((n,id,j)=>n+($(id).checked?1<<j:0),0);const h=scenarios[current];const age=scenarios[15].age_Ga[0]*(1-Number($('age').value)/1000);let i=h.age_Ga.findIndex(x=>x<=age);if(i<0)i=h.age_Ga.length-1;
+const set=(id,v)=>$(id).textContent=v;
+set('date',(scenarios[15].age_Ga[0]-h.age_Ga[i]).toFixed(3)+' Ga depuis le début');set('tempvalue',h.T_K[i].toFixed(1)+' K');set('sunvalue',h.solar_W_m2[i].toFixed(0)+' W/m²');set('icevalue',(h.ice[i]*100).toFixed(1)+' % de glace');set('oceanvalue',h.ocean_kg[i].toExponential(4)+' kg');set('vaporvalue',h.vapor_kg[i].toExponential(2)+' kg');set('co2value',h.pco2_Pa[i].toPrecision(4)+' Pa');set('rainvalue',h.rain_mm_yr[i].toFixed(0)+' mm/an');
+$('iceedges').classList.toggle('off',!$('ice').checked);$('weatheredges').classList.toggle('off',!$('weather').checked);$('wateredges').classList.toggle('off',!$('water').checked||!$('weather').checked);
+$('charts').innerHTML=titles.map(x=>chart(...x)).join('');$('metrics').textContent='T : '+(h.T_K[i]-273.15).toFixed(1)+' °C · Eau totale : 1,4 × 10²¹ kg · Glace : '+(100*h.ice[i]).toFixed(1)+' %';}
+controls.forEach(id=>$(id).addEventListener('change',update));$('age').addEventListener('input',update);
+$('play').addEventListener('click',()=>{if(timer){clearInterval(timer);timer=null;$('play').textContent='Animer';return}if(+$('age').value>=1000)$('age').value=0;$('play').textContent='Pause';timer=setInterval(()=>{$('age').value=Math.min(1000,+$('age').value+5);update();if(+$('age').value>=1000){clearInterval(timer);timer=null;$('play').textContent='Animer'}},60)});update();
+</script></html>

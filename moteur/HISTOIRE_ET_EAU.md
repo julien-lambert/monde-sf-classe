@@ -1,0 +1,1 @@
+Voir les fiches collectives Monde SF pour les équations du cycle de l’eau, le traitement des temps longs et les limites. La simulation part d’un état fictif et suit cinq milliards d’années, sans chronologie terrestre imposée. Les paramètres étoile, orbite et planète sont dans monde_sf.json.
