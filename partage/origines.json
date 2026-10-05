@@ -1,0 +1,54 @@
+{
+  "1": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/gaz.py"
+  },
+  "2": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/retention.py"
+  },
+  "3": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/degazage.py"
+  },
+  "4": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/radiatif.py"
+  },
+  "5": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/eau.py"
+  },
+  "6": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/alteration.py"
+  },
+  "7": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/oxygenation.py"
+  },
+  "8": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/uv.py"
+  },
+  "9": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/glace.py"
+  },
+  "10": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/climat.py"
+  },
+  "11": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/energie.py"
+  },
+  "12": {
+    "statut": "référence professeur",
+    "fichier": "moteur/modules/demographie.py"
+  },
+  "13": {
+    "statut": "référence professeur",
+    "fichier": "moteur/ensemble.py"
+  }
+}
